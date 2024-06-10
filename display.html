@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Display</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Form Data</h2>
+    <div id="formDataDisplay"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formData = JSON.parse(localStorage.getItem("formData"));
+
+            if (formData) {
+                const displayDiv = document.getElementById("formDataDisplay");
+                displayDiv.innerHTML = `
+                    <p><strong>First Name:</strong> ${formData.firstName}</p>
+                    <p><strong>Last Name:</strong> ${formData.lastName}</p>
+                    <p><strong>Phone Number:</strong> ${formData.phoneNumber}</p>
+                    <p><strong>Email Address:</strong> ${formData.email}</p>
+                    <p><strong>State:</strong> ${formData.state}</p>
+                    <p><strong>City:</strong> ${formData.city}</p>
+                    <p><strong>Pin Code:</strong> ${formData.pincode}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
